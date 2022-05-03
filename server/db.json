@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "27f6f906-98b8-4484-84d3-760ab5bcbc70",
+      "name": "Mukesh Patel",
+      "email": "mukesh@gmail.com"
+    },
+    {
+      "id": "fa027789-d221-4b18-bce6-c23955d46a86",
+      "name": "Rakesh Mathieu",
+      "email": "rakesh@gmail.com"
+    },
+    {
+      "id": "6057339d-aad6-499d-b3f1-f8835234d894",
+      "name": "Jack",
+      "email": "jack@gmail.com"
+    }
+  ]
+}
