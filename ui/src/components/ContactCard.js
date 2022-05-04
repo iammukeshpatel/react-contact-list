@@ -7,7 +7,7 @@ function ContactCard(props) {
   const contact = props.contact;
 
   if (contact.name === "Jocker") {
-    // throw new Error("Invalid contact name Jocker");
+    throw new Error("Invalid contact name Jocker");
   }
 
   const listClickHandler = () => {
