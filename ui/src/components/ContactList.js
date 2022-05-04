@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
+import ContactErrorBoundary from "./ContactErrorBoundary";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 function ContactList(props) {
@@ -29,11 +30,13 @@ function ContactList(props) {
 
   const renderContactList = props.contacts.map((contact) => {
     return (
-      <ContactCard
-        key={contact.id}
-        contact={contact}
-        showDeleteModal={showDeleteModalHandler}
-      />
+      <ContactErrorBoundary key={"error" + contact.id}>
+        <ContactCard
+          key={contact.id}
+          contact={contact}
+          showDeleteModal={showDeleteModalHandler}
+        />
+      </ContactErrorBoundary>
     );
   });
 

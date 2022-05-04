@@ -6,6 +6,10 @@ function ContactCard(props) {
   const navigate = useNavigate();
   const contact = props.contact;
 
+  if (contact.name === "Jocker") {
+    // throw new Error("Invalid contact name Jocker");
+  }
+
   const listClickHandler = () => {
     navigate(`/contact/${contact.id}`, {
       state: { contact: contact },
