@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import withRouter from "./withRoute";
 
+import contactApi from "./../api/contacts";
+
 export class EditContact extends Component {
   constructor(props) {
     super(props);
@@ -22,10 +24,14 @@ export class EditContact extends Component {
       return;
     }
 
-    this.props.updateContactHandler(this.state);
+    this.updateContactHandler(this.state);
     this.setState({ name: "", email: "" });
-    this.props.navigate("/");
+    this.props.navigate("/dashboard");
   };
+
+  async updateContactHandler(contact) {
+    await contactApi.put(`contacts/${contact.id}`, contact);
+  }
 
   render() {
     return (
@@ -80,7 +86,7 @@ export class EditContact extends Component {
                   <div className="col offset-2">
                     <button className="btn btn-primary me-2">Update</button>
 
-                    <Link to="/">
+                    <Link to="/dashboard">
                       <button className="btn btn-primary">Back to List</button>
                     </Link>
                   </div>

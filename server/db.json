@@ -19,6 +19,29 @@
       "id": "acd55698-a5dd-4d73-8c93-e000800fc3af",
       "name": "Jocker123",
       "email": "jocker@gmail.com"
+    },
+    {
+      "id": "89ce4631-0238-4f4d-b3c0-7a299b3ce193",
+      "name": "Princess",
+      "email": "Patel"
+    },
+    {
+      "id": "e07558c9-8498-43f9-b0da-bf782adc2358",
+      "name": "Survi Patel",
+      "email": "Survi@demo.com"
+    },
+    {
+      "id": "4a2babf7-0097-4366-82b0-019755a0cf85",
+      "name": "Mahi",
+      "email": "Patel"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@demo.com",
+      "password": "$2a$10$.TOu.w.Oas37qjkPsXXw6OxQeoSPdL6DtfP.cn3RM/d.K0K8KoA62",
+      "username": "admin",
+      "id": 1
     }
   ]
 }

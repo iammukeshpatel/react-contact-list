@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import withRouter from "./withRoute";
+import contactApi from "./../api/contacts";
+import { v4 as uuidv4 } from "uuid";
 
 class AddContact extends React.Component {
   constructor(props) {
@@ -19,9 +21,16 @@ class AddContact extends React.Component {
       return;
     }
 
-    this.props.addContactHandler(this.state);
+    this.addContactHandler(this.state);
     this.setState({ name: "", email: "" });
-    this.props.navigate("/");
+  };
+
+  addContactHandler = async (contact) => {
+    const request = { id: uuidv4(), ...contact };
+
+    contactApi.post("/contacts", request).then(() => {
+      this.props.navigate("/dashboard");
+    });
   };
 
   render() {
@@ -77,7 +86,7 @@ class AddContact extends React.Component {
                   <div className="col offset-2">
                     <button className="btn btn-primary me-2">Add</button>
 
-                    <Link to="/">
+                    <Link to="/dashboard">
                       <button className="btn btn-primary">Back to List</button>
                     </Link>
                   </div>

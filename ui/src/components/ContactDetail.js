@@ -13,7 +13,7 @@ export default function ContactDetail(props) {
         <h5 className="card-title">{contact.name}</h5>
         <p className="card-text">{contact.email}</p>
 
-        <Link to="/">
+        <Link to="/dashboard">
           <button className="btn btn-primary">Back to List</button>
         </Link>
       </div>
