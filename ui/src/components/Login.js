@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-export default function Login() {
+export default function Login(props) {
   const [formData, setFormData] = useState({
-    email: "", // required
-    password: "", // required
+    email: "admin@admin.com", // required
+    password: "Admin@123", // required
+    error: "",
   });
 
   function handleSubmit(e) {
@@ -13,8 +14,21 @@ export default function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw response;
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("success", data);
+        window.location.href = "/dashboard";
+      })
+      .catch(async (error) => {
+        setFormData({
+          error: await error.json(),
+        });
+      });
   }
 
   function handleChange(e) {
@@ -33,7 +47,7 @@ export default function Login() {
           onChange={(e) => handleChange(e)}
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           value={formData.password}
           name="password"
@@ -42,6 +56,8 @@ export default function Login() {
         <button className="login-btn" type="submit">
           Login
         </button>
+
+        <p> {formData.error}</p>
       </form>
     </React.Fragment>
   );

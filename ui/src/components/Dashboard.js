@@ -32,7 +32,7 @@ export default function Dashboard() {
         return Object.values(contact)
           .join(" ")
           .toLocaleLowerCase()
-          .includes(searchTerm);
+          .includes(searchTerm.toLocaleLowerCase());
       });
 
       setSearchResult(newContactList);

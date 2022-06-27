@@ -13,18 +13,18 @@ const Header = () => {
           <div id="navbarNav">
             <ul className="nav">
               {/* <li className="nav-item">
-                <Link class="nav-link" to="/">
+                <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li> */}
 
               <li className="nav-item">
-                <Link class="nav-link" to="/dashboard">
+                <Link className="nav-link" to="/dashboard">
                   Dashboard
                 </Link>
               </li>
               <li className="nav-item">
-                <Link class="nav-link" to="/lifecycle">
+                <Link className="nav-link" to="/lifecycle">
                   LifeCycle
                 </Link>
               </li>
