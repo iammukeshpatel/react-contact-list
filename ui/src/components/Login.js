@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
   const [formData, setFormData] = useState({
@@ -6,6 +8,10 @@ export default function Login(props) {
     password: "Admin@123", // required
     error: "",
   });
+
+  const authContext = useAuth();
+  const navigate = useNavigate();
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +28,11 @@ export default function Login(props) {
       })
       .then((data) => {
         console.log("success", data);
-        window.location.href = "/dashboard";
+        // isLoggedIn(true);
+        authContext.login(data.user);
+      }).then((response) => {
+        navigate('/dashboard');
+        // window.location.href = "/dashboard";
       })
       .catch(async (error) => {
         setFormData({
@@ -56,9 +66,11 @@ export default function Login(props) {
         <button className="login-btn" type="submit">
           Login
         </button>
+        
 
         <p> {formData.error}</p>
       </form>
+      
     </React.Fragment>
   );
 }

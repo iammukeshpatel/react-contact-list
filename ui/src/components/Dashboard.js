@@ -3,11 +3,13 @@ import ContactList from "./ContactList";
 import Header from "./Header";
 
 import contactApi from "./../api/contacts";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Dashboard() {
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const { authUser, setAuthUser, isLoggedIn, setIsLoggedIn } = useAuth();
 
   const retrivedContacts = async () => {
     const response = await contactApi.get("contacts");
@@ -67,7 +69,6 @@ export default function Dashboard() {
 
   return (
     <React.Fragment>
-      <Header />
       <ContactList
         contacts={searchTerm.length < 1 ? contacts : searchResult}
         getConatactId={removeContactHandler}
